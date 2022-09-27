@@ -11,3 +11,7 @@ npm run build
 ```
 ## Deployment
 Project deployed using vercel cli
+added ```"deploy": "vercel --prod"``` to scripts inside package.json file and changed output dir to ```dist``` during setup
+
+## Link
+[https://partha-3dtext.vercel.app/](https://partha-3dtext.vercel.app/)
