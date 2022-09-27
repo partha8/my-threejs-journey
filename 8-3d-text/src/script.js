@@ -1,7 +1,7 @@
 import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import * as dat from "lil-gui";
+import * as lil from "lil-gui";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import typefaceFont from "three/examples/fonts/helvetiker_regular.typeface.json";
@@ -10,7 +10,7 @@ import typefaceFont from "three/examples/fonts/helvetiker_regular.typeface.json"
  * Base
  */
 // Debug
-const gui = new dat.GUI();
+const gui = new lil.GUI();
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -38,12 +38,12 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
     font: font,
     size: 0.5,
     height: 0.2,
-    curveSegments: 12,
+    curveSegments: 4,
     bevelEnabled: true,
     bevelThickness: 0.03,
     bevelSize: 0.02,
     bevelOffset: 0,
-    bevelSegments: 5,
+    bevelSegments: 4,
   });
   textGeometry.center();
 
