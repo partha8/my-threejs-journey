@@ -224,6 +224,16 @@ const doorLight = new THREE.PointLight("#ff7d46", 1, 7);
 doorLight.position.set(0, 2.2, 2.7);
 house.add(doorLight);
 
+//Ghosts
+const ghost1 = new THREE.PointLight("#ff00ff", 2, 3);
+scene.add(ghost1);
+
+const ghost2 = new THREE.PointLight("#00ffff", 2, 3);
+scene.add(ghost2);
+
+const ghost3 = new THREE.PointLight("#ffff00", 2, 3);
+scene.add(ghost3);
+
 /**
  * Sizes
  */
@@ -285,6 +295,23 @@ const tick = () => {
 
   // Update controls
   controls.update();
+
+  //Update ghost animation
+  const ghostAngle = elapsedTime * 0.5;
+  ghost1.position.x = Math.cos(ghostAngle) * 4;
+  ghost1.position.z = Math.sin(ghostAngle) * 4;
+  ghost1.position.y = Math.sin(elapsedTime * 3);
+
+  const ghostAngle2 = -elapsedTime * 0.32;
+  ghost2.position.x = Math.cos(ghostAngle2) * 5;
+  ghost2.position.z = Math.sin(ghostAngle2) * 5;
+  ghost2.position.y = Math.sin(elapsedTime * 4) + Math.sin(elapsedTime * 2.5);
+
+  const ghostAngle3 = -elapsedTime * 0.18;
+  ghost3.position.x =
+    Math.cos(ghostAngle3) * (7 + Math.sin(elapsedTime * 0.32));
+  ghost3.position.z = Math.sin(ghostAngle3) * (7 + Math.sin(elapsedTime * 0.5));
+  ghost3.position.y = Math.sin(elapsedTime * 5) + Math.sin(elapsedTime * 2.5);
 
   // Render
   renderer.render(scene, camera);
